@@ -24,4 +24,6 @@ Now there is one potential **shortcoming** when using JWT, which is **token thef
 
 Personally I** don't think** the additional **protection** **offered** by **cookies** is a huge **win** because I'm **not willing** to **accept** the **premise** of the argument. Here is what I mean: if your site has fallen **victim** to **XSS** then you've **already lost**. Granted the attacker **can't** get **access** to your session **cookies**, but the attacker will just move on to **other attacks** such as key logging and phishing. Not to mention **protecting** against **XSS** attacks is fairly well **understood** and most frameworks offer protection from these attacks as a default behavior.
 
-The source for this episode is available at: [https://github.com/knowthen/Episode-9-Ditching-Cookies-for-JSON-Web-Tokens](https://github.com/knowthen/Episode-9-Ditching-Cookies-for-JSON-Web-Tokens)
+Please join my mailing list so I can let you know when new screencasts are released
+
+http://knowthen.com/join/
