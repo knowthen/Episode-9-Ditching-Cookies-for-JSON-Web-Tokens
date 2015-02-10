@@ -1,0 +1,31 @@
+script(type='text/ng-template', id='templates/home.html')
+  h3 Cookies are so 1994!
+
+script(type='text/ng-template', id='templates/token.html')
+  h3 Token
+  pre#token(name='token', ng-bind-html='token') 
+
+script(type='text/ng-template', id='templates/logs.html')
+  h4 Logs
+  ul.list-unstyled
+    li(ng-repeat='log in logs') {{log.date | date: 'short'}} - {{log.description}}
+
+script(type='text/ng-template', id='templates/login.html')
+  .alert.alert-danger(role='alert', ng-show='error.show')
+    button.close(type='button', aria-label='Close', ng-click='error.show = !error.show')
+      span(aria-hidden='true') ×
+    strong Error!
+    |  {{error.message}}
+  .row
+    .col-sm-6.col-md-4.col-md-offset-4
+      .account-wall
+        #my-tab-content.tab-content
+          #login.tab-pane.active
+            img.profile-img(src='https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120', alt='')
+            form.form-signin(ng-submit='login(credentials)')
+              input.form-control(ng-model='credentials.username', type='text', placeholder='Username', required='', autofocus='')
+              input.form-control(ng-model='credentials.password', type='password', placeholder='Password', required='')
+              input.btn.btn-lg.btn-default.btn-block(type='submit', value='Sign In')
+          
+script(type='text/ng-template', id='templates/logout.html')
+  h3(ng-if='!state.isLoggedIn') You are logged out!

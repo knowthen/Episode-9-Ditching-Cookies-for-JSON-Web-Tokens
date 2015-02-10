@@ -1,0 +1,21 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      a.navbar-brand(ui-sref='home') Json Web Tokens
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    #navbar-main.navbar-collapse.collapse
+      ul.nav.navbar-nav
+
+        li(ui-sref-active='active')
+          a(ui-sref='logs') Logs
+        li(ui-sref-active='active')
+          a(ui-sref='token') Token
+      ul.nav.navbar-nav.navbar-right(ng-controller='NavLoginCtrl')
+        li(ui-sref-active='active', ng-if='!state.isLoggedIn')
+          a(ui-sref='login') Login
+        li(ui-sref-active='active', ng-if='state.isLoggedIn')
+          a(ui-sref='logout') Logout
+

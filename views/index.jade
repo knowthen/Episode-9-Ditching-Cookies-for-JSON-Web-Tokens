@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='/bootstrap.css')
+    link(rel='stylesheet', href='/app.css')
+  body(ng-app='jwtApp')
+    include ./header.jade
+    div.container#content(ui-view)
+    include ./vendorscripts.jade
+    include ./ngtemplates.jade
+    script(src='/app.js')
+      
