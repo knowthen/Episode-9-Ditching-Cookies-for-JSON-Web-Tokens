@@ -1,6 +1,6 @@
 #### What you'll learn in just over 10 minutes
 
-In this **tutorial screencast** we'll look at how to **implement** **JSON Web Tokens** (JWT's) by **building** a simple **single page application** that leverages this simple form of Token based authentication.
+In this [tutorial screencast](http://knowthen.com/episode-9-ditching-cookies-for-json-web-tokens/) we'll look at how to **implement** **JSON Web Tokens** (JWT's) by **building** a simple **single page application** that leverages this simple form of Token based authentication.
 
 We'll use [Koajs](http://koajs.com/) on the server side, [Angularjs](https://angularjs.org/) on the client side and the [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) package to show you the basics of JWT's in just a few minutes of your time.
 
