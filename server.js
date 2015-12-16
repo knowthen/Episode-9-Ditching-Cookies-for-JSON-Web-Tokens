@@ -30,15 +30,15 @@ app.use(function* auth(next) {
         token = elements[1];
         try {
 
-          this.user = jwt.verify(token, secret); 
-          
+          this.user = jwt.verify(token, secret);
+
         } catch(err){
 
         }
 
-      } 
-      
-    } 
+      }
+
+    }
 
   }
   yield next;
@@ -50,17 +50,18 @@ function isAuth() {
 
   return function*(next) {
 
-    if (this.user.userid > 0) {
+    if (this.user && this.user.userid > 0) {
       yield next;
     } else {
       this.throw(401, 'Must be logged in to see this!')
     }
 
-  } 
+  }
 
 }
-
-app.get('/logs', isAuth(), function* logs() {
+// changed from /logs to /api/logs.  Page refresh at url /logs shouldn't hit
+// this endpoint
+app.get('/api/logs', isAuth(), function* logs() {
 
   this.body = [{
     id: 1,
@@ -74,8 +75,8 @@ app.get('/logs', isAuth(), function* logs() {
 
 });
 
-
-app.post('/authenticate', function* authenticate() {
+// changed from /api to /api/authenticate.  to be consistent w/ logs endpoint
+app.post('/api/authenticate', function* authenticate() {
 
   let body, claim;
 
@@ -98,8 +99,8 @@ app.post('/authenticate', function* authenticate() {
 });
 
 app.get(/^.*$/, function* index() {
-  this.body =
-    yield render('index');
+  // yield send(this, __dirname + '/index.html');
+  this.body = yield render('index');
 })
 
 app.listen(4000);

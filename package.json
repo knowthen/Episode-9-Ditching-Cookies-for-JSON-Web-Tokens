@@ -15,6 +15,7 @@
     "jsonwebtoken": "^3.2.2",
     "koa": "^0.16.0",
     "koa-router": "^3.8.0",
-    "koa-static": "^1.4.8"
+    "koa-static": "^1.4.8",
+    "send": "^0.13.0"
   }
 }

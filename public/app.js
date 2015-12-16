@@ -71,7 +71,7 @@ app.config(function($stateProvider, $locationProvider, $httpProvider) {
       controller: 'LogsCtrl',
       resolve: {
         logs: function(Restangular) {
-          return Restangular.all('logs').getList();
+          return Restangular.all('api/logs').getList();
         }
       }
     })
@@ -95,7 +95,7 @@ app
   .controller('LogoutCtrl', logoutCtrl)
   .controller('NavLoginCtrl', navLoginLinkCtrl)
   .factory('authInterceptor', authInterceptor);
-  
+
 
 app.run(function($rootScope, $state){
   $rootScope.$on('$stateChangeError',
@@ -137,7 +137,7 @@ function navLoginLinkCtrl($scope, Login) {
 
 function loginCtrl($scope, $window, $state, Restangular, Login) {
 
-  var user = Restangular.all('authenticate');
+  var user = Restangular.all('api/authenticate');
 
   $scope.login = function(credentials) {
 
@@ -151,16 +151,16 @@ function loginCtrl($scope, $window, $state, Restangular, Login) {
           show: true,
           message: err.data
         }
-      }); 
+      });
 
-  } 
+  }
 
 }
 
 function logoutCtrl($window, Login){
 
   $window.localStorage.removeItem('token');
-  Login.isLoggedIn = false; 
+  Login.isLoggedIn = false;
 
 }
 
@@ -171,13 +171,13 @@ function authInterceptor($window) {
 
       if ($window.localStorage.token) {
 
-        config.headers.Authorization = 'Bearer ' + $window.localStorage.token; 
+        config.headers.Authorization = 'Bearer ' + $window.localStorage.token;
 
-      } 
+      }
 
       return config;
 
     }
-  } 
+  }
 
 }
